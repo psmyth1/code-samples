@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	    <meta charset="utf-8">
+	    <link href="css/popup.css" rel="stylesheet">
+	    <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
+		<script data-main="js/app/main-popup" src="js/lib/require.js"></script>
+	</head>
+	<body id="popup">
+		<div class="device-selection-header no-viewer">
+		  	Not paired with Chrome Remote.....
+		</div>
+		<div class="device-selection-header viewer">
+		  	Paired with Chrome Remote....		  	
+		</div>
+		<div>
+	      <div class="goog-menuitem viewer">
+		      <div class="goog-menuitem-content">
+		      	<label for="cur-viewer-name">Name</label>
+				<span id="cur-viewer-name"></span>				
+				<button id="unpair-viewer">
+					<amr>Unpair</amr>
+				</button>	      		
+	         </div>
+	      </div>
+    	  <div class="goog-menuitem-static no-viewer">
+		      <div class="goog-menuitem-content">
+				<label for="pair-viewer-name">Name</label>
+	      		<input id="pair-viewer-name" type="text"></input>	      		
+				<button id="pair-viewer">
+					<amr>Pair</amr>
+				</button>	      		
+	         </div>
+	      </div>
+	      <div class="goog-menuseparator"></div>
+	      <div class="goog-menuitem" onclick="showOptions()">
+	        <div class="goog-menuitem-content">
+	          <amr>Options</amr>
+	        </div>
+	      </div>
+	      <div class="goog-menuitem" onclick="sendFeedback()">
+	        <div class="goog-menuitem-content">
+	          <amr>Send Feedback</amr>
+	        </div>
+	      </div>
+	      <div class="goog-menuitem" onclick="help()">
+	        <div class="goog-menuitem-content">
+	          <amr>Help</amr>
+	        </div>
+	      </div>
+	    </div>
+		
+	</body>
+</html>

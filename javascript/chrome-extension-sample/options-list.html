@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	  <link href="css/option-list.css" rel="stylesheet" type="text/css">
+	  <title>Cast device settings</title>
+	</head>
+	<body dir="ltr" id="viewer-setup">      
+		<div>
+	      <h3 style="display: none;">
+	        <amr>All linked Remote Viewers</amr>
+	      </h3>
+	      <h3>
+	        <amr>Available Remote Viewers</amr>
+	      </h3>
+	      <div class="viewer-device-box">
+	        <ul class="viewer-list-setup">
+	          <li onclick="onDeviceSelected($index, 'viewerDeviceList','viewerDevice')" dir="ltr" class="device-item-selected">
+	          		PATVIEWER1
+	          </li>
+	          <li onclick="onDeviceSelected($index, 'viewerDeviceList','viewerDevice')" dir="ltr" class="device-item">
+	          		PATVIEWER2
+	          </li>
+	          <li onclick="onDeviceSelected($index, 'viewerDeviceList','viewerDevice')" dir="ltr" class="device-item">
+	          		PATVIEWER3
+	          </li>
+	        </ul>
+	      </div>
+	      <button onclick="onEditDevice()">
+	        <amr>Edit...</amr>
+	      </button>      
+	    </div>
+	</body>
+</html>

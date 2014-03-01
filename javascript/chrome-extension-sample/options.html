@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Google Chrome Remote extension options</title>
+		<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;subset=latin" rel="stylesheet">
+		<link href="css/options.css" rel="stylesheet" type="text/css">
+		<script data-main="js/app/main-options" src="js/lib/require.js"></script>
+	</head>
+	<body id="options">
+		<div class="fixed-top">
+			<header>
+				<img id="cast-icon" src="img/icon48.png" alt="Chrome Remote">
+				<h1 class="top-title">
+					<amr>Google Chrome Remote extension options</amr>
+				</h1>
+			</header>
+		</div>
+		<div class="options-sections">
+			<section class="viewer-setup-frame-section">
+				<iframe id="viewerSetupFrame" src="options-list.html" frameborder="0" width="100%" height="100%">
+				</iframe>				
+			</section>
+			<section>
+				<h3>
+					<amr>Default action when spawning new instance.</amr>
+				</h3>
+				<!-- ngRepeat: q in qualityLevels -->
+				<span class="controlled-setting-with-label"> 
+					<input type="radio" value="new_window" id="ql-new-window" name="008"> 
+						<label for="ql-highest">Open new window.</label>
+				</span>
+				<span class="controlled-setting-with-label"> 
+					<input type="radio" value="new_window_min" id="ql-new-window-min" name="007"> 
+						<label for="ql-new-window-min">Open new window, minimized.</label>
+				</span>
+				<span class="controlled-setting-with-label"> 
+					<input type="radio" value="new_tab" id="ql-new-tab"	name="006"> 
+						<label for="ql-new-tab">Open new tab.</label>
+				</span>
+			</section>
+			<section>
+				<h3>
+					<amr>Browser lock</amr>
+				</h3>
+				<span class="controlled-setting-with-label"> 
+					<input type="radio" value="on" id="lock-on" name="004">
+					<label for="lock-on">
+						<amr>Enabled - will require signing out of account to bypass.</amr>
+					</label>
+				</span> 
+				<span class="controlled-setting-with-label"> 
+					<input type="radio" value="off" id="lock-off" name="004">
+					<label for="lock-off">
+						<amr>Disabled - browser fully accessible.</amr>
+					</label>
+				</span> 			
+			</section>		
+		</div>	
+	</body>
+</html>
