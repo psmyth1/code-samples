@@ -1,0 +1,1 @@
+D:\dev\workspace\c#-app-sample\bin\Debug\FightThisWayRevised.exe.config
