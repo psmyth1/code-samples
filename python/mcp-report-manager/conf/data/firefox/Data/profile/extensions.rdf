@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<RDF:RDF xmlns:NS1="http://www.mozilla.org/2004/em-rdf#"
+         xmlns:NC="http://home.netscape.com/NC-rdf#"
+         xmlns:RDF="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <RDF:Description RDF:about="rdf:#$F2eh41"
+                   NS1:id="{ec8030f7-c20a-464f-9b0e-13a3a9e97384}"
+                   NS1:minVersion="3.6.8"
+                   NS1:maxVersion="3.6.8" />
+  <RDF:Description RDF:about="urn:mozilla:item:{972ce4c6-7e08-4474-a285-3208198ce6fd}"
+                   NS1:installLocation="app-global"
+                   NS1:version="3.6.8"
+                   NS1:internalName="classic/1.0"
+                   NS1:locked="true"
+                   NS1:appManaged="true"
+                   NS1:name="Default"
+                   NS1:description="The default theme."
+                   NS1:creator="Mozilla"
+                   NS1:contributor="Mozilla Contributors">
+    <NS1:type NC:parseType="Integer">4</NS1:type>
+    <NS1:targetApplication RDF:resource="rdf:#$F2eh41"/>
+  </RDF:Description>
+  <RDF:Description RDF:about="rdf:#$V2eh41"
+                   NS1:id="{ec8030f7-c20a-464f-9b0e-13a3a9e97384}"
+                   NS1:minVersion="1.5"
+                   NS1:maxVersion="3.*.*" />
+  <RDF:Description RDF:about="urn:mozilla:item:{896b34a4-c83f-4ea7-8ef0-51ed7220ac94}"
+                   NS1:installLocation="app-profile"
+                   NS1:version="1.0.7"
+                   NS1:updateURL="http://groups.csail.mit.edu/uid/chickenfoot/update.rdf"
+                   NS1:iconURL="chrome://chickenfoot/skin/beak-32.png"
+                   NS1:updateKey="MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDCB5VlJYklRGMWjCkBCOGaPwGCG7MezZ4S3NRbt1JjSBxyxLRkrQFVuXb5Eak1zL87Iy6/MTLt9lWQ07M3QjL7zxzMYIVyubcLDF5rFdauonq4UDfcLuN6fdy/yIqGrZF4ZKn1b6DDs+7McDR7+qMtopr+LcUH1a5m1uuad1HQ6QIDAQAB"
+                   NS1:name="Chickenfoot"
+                   NS1:description="End-user programming tool for Firefox."
+                   NS1:creator="UID Group, MIT"
+                   NS1:homepageURL="http://groups.csail.mit.edu/uid/chickenfoot/">
+    <NS1:type NC:parseType="Integer">2</NS1:type>
+    <NS1:targetApplication RDF:resource="rdf:#$c3eh41"/>
+  </RDF:Description>
+  <RDF:Description RDF:about="rdf:#$c3eh41"
+                   NS1:id="{ec8030f7-c20a-464f-9b0e-13a3a9e97384}"
+                   NS1:minVersion="3.0"
+                   NS1:maxVersion="3.6.*" />
+  <RDF:Description RDF:about="urn:mozilla:item:{20a82645-c095-46ed-80e3-08825760534b}"
+                   NS1:installLocation="app-profile"
+                   NS1:version="1.1"
+                   NS1:updateURL="https://go.microsoft.com/fwlink/?LinkID=139711"
+                   NS1:optionsURL="chrome://dotnetassistant/content/options.xul"
+                   NS1:name="Microsoft .NET Framework Assistant"
+                   NS1:description="Adds ClickOnce support and the ability to report installed .NET versions to the web server."
+                   NS1:creator="Microsoft"
+                   NS1:homepageURL="http://www.windowsclient.net/">
+    <NS1:type NC:parseType="Integer">2</NS1:type>
+    <NS1:targetApplication RDF:resource="rdf:#$V2eh41"/>
+  </RDF:Description>
+  <RDF:Seq RDF:about="urn:mozilla:item:root">
+    <RDF:li RDF:resource="urn:mozilla:item:{972ce4c6-7e08-4474-a285-3208198ce6fd}"/>
+    <RDF:li RDF:resource="urn:mozilla:item:{20a82645-c095-46ed-80e3-08825760534b}"/>
+    <RDF:li RDF:resource="urn:mozilla:item:{896b34a4-c83f-4ea7-8ef0-51ed7220ac94}"/>
+  </RDF:Seq>
+</RDF:RDF>

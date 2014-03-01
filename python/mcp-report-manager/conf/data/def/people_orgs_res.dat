@@ -1,0 +1,1 @@
+${(in(report.field2, "[\"INVESTED MANAGER\"]")) && (in(report.field6, "[\"Person\"]"))}

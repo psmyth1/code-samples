@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>manager.utils.StatisticsReport.StatisticsReport</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="manager-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="manager-module.html">Package&nbsp;manager</a> ::
+        <a href="manager.utils-module.html">Package&nbsp;utils</a> ::
+        <a href="manager.utils.StatisticsReport-module.html">Module&nbsp;StatisticsReport</a> ::
+        Class&nbsp;StatisticsReport
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="manager.utils.StatisticsReport.StatisticsReport-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class StatisticsReport</h1><p class="nomargin-top"><span class="codelink"><a href="manager.utils.StatisticsReport-pysrc.html#StatisticsReport">source&nbsp;code</a></span></p>
+<pre class="literalblock">
+
+Inputs
+Date (input_date)
+- Defines for which month the report is run
+
+Output Path
+- specifies where to save the excel file
+
+Data Manager
+- passed from parent or created if need be to decrease run time
+
+Options
+Fund Universe (invest_univ)
+Definition: Which funds should be included in the report
+1 - Invested Only
+2 - Focus List Only
+3 - Both Invested and Focus List, make Invested funds &quot;blue&quot;
+
+Return Status (return_status)
+1 - Only include funds who have returns over entire period, list funds in Notes which didn't
+2 - Include all funds, italicize the funds w/o entire period returns (note their most current month)
+
+Date Range (custom_dates)
+[] - Use standard trailing periods
+[P1,P2,P3] - Use custom input periods (formatted &quot;06/30/2009-05/31/2010&quot; for each period (P#)
+
+Include MCP Funds and Indices (include_MCPFAI)
+True - Include MCP funds and indices
+False - Do not include MCP funds and indices
+
+Add Additional Managers to the Fund Universe (add_managers)
+[] - no managers to add
+[BackstopID, BackstopID, ...] - add specified managers
+
+Overview:
+This class is not simple.  It can be broken down into the follwing parts
+
+- Helper Functions
+- Defining the Date Definitions (either standard trailing periods or custom)
+- Get appropriate fund universe from backstop (invested, focus, or both)
+- Put fund universe data in workable structure using the Fund class
+- Get additional managers (if any) using a custom report definition and put them in workable 
+    structure
+- Get information on MCP funds and indices (if need be) adn put them in workable structure
+- Aggregate all funds (universe, additional, MCPFAI) into single pool
+- Parse pool into groups based on date of most recent return (recent month, prior month, 
+    prior month x2, and leftover)  for appropriate statistics calculations
+- Calculate statistics for each period for each group of funds
+- Define the &quot;output&quot; funds using the ParseFunds() and PopulateOutput() helper methods
+- Export data to excel using win32com client
+    NOTE - I suggest spending some time reviewing this section.  There is a lot of conditional
+    code used to pass information to excel for formatting for specific options.  Also, the only 
+    way to pass information from Python to VBA macros is by writing the data to a spot on the 
+    spreadsheet and then reading it in in the Macro.  This is a round about fix that is not 
+    ideal, but there is no other way that I could find.  VBA macros are imported into the excel
+    document and then called to handle the brunt of the formatting.
+
+Additional Notes:
+The &quot;Dispatch&quot; import always shows red.  It works anyways. 
+
+</pre>
+
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="__init__"></a><span class="summary-sig-name">__init__</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">input_date</span>,
+        <span class="summary-sig-arg">output_path</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string">C:/Documents and Settings/zmitschrich/Desktop</code><code class="variable-quote">'</code></span>,
+        <span class="summary-sig-arg">bsdm</span>=<span class="summary-sig-default">BackStopDataManager()</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="manager.utils.StatisticsReport-pysrc.html#StatisticsReport.__init__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="GenerateReport"></a><span class="summary-sig-name">GenerateReport</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">invest_univ</span>,
+        <span class="summary-sig-arg">return_status</span>,
+        <span class="summary-sig-arg">custom_dates</span>,
+        <span class="summary-sig-arg">include_MCPFAI</span>,
+        <span class="summary-sig-arg">add_managers</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="manager.utils.StatisticsReport-pysrc.html#StatisticsReport.GenerateReport">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="manager-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Jul 19 12:06:07 2010
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

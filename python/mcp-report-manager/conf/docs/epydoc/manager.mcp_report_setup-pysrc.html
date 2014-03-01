@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>manager.mcp_report_setup</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="manager-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="manager-module.html">Package&nbsp;manager</a> ::
+        Module&nbsp;mcp_report_setup
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="manager.mcp_report_setup-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="manager.mcp_report_setup-module.html">Module manager.mcp_report_setup</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno"> 1</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">distutils</tt><tt class="py-op">.</tt><tt class="py-name">core</tt> <tt class="py-keyword">import</tt> <tt class="py-name">setup</tt> </tt>
+<a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">os</tt> </tt>
+<a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">py2exe</tt> </tt>
+<a name="L4"></a><tt class="py-lineno"> 4</tt>  <tt class="py-line"> </tt>
+<a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line"><tt id="link-0" class="py-name" targets="Variable manager.cache_manager_setup.path=manager.cache_manager_setup-module.html#path,Variable manager.mcp_report_setup.path=manager.mcp_report_setup-module.html#path"><a title="manager.cache_manager_setup.path
+manager.mcp_report_setup.path" class="py-name" href="#" onclick="return doclink('link-0', 'path', 'link-0');">path</a></tt> <tt class="py-op">=</tt> <tt class="py-string">"C:\\Documents and Settings\\psmyth\\Desktop\\Projects\\MCP Report Manager\\manager\\"</tt> </tt>
+<a name="L6"></a><tt class="py-lineno"> 6</tt>  <tt class="py-line"> </tt>
+<a name="L7"></a><tt class="py-lineno"> 7</tt>  <tt class="py-line"><tt id="link-1" class="py-name" targets="Variable manager.cache_manager_setup.files=manager.cache_manager_setup-module.html#files,Variable manager.mcp_report_setup.files=manager.mcp_report_setup-module.html#files"><a title="manager.cache_manager_setup.files
+manager.mcp_report_setup.files" class="py-name" href="#" onclick="return doclink('link-1', 'files', 'link-1');">files</a></tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-op">(</tt><tt class="py-string">'images'</tt><tt class="py-op">,</tt><tt class="py-op">[</tt><tt id="link-2" class="py-name"><a title="manager.cache_manager_setup.path
+manager.mcp_report_setup.path" class="py-name" href="#" onclick="return doclink('link-2', 'path', 'link-0');">path</a></tt> <tt class="py-op">+</tt> <tt class="py-string">"images\\splash_screen.jpg"</tt><tt class="py-op">,</tt> <tt id="link-3" class="py-name"><a title="manager.cache_manager_setup.path
+manager.mcp_report_setup.path" class="py-name" href="#" onclick="return doclink('link-3', 'path', 'link-0');">path</a></tt> <tt class="py-op">+</tt> <tt class="py-string">"images\\icon.ico"</tt><tt class="py-op">]</tt><tt class="py-op">)</tt><tt class="py-op">]</tt> </tt>
+<a name="L8"></a><tt class="py-lineno"> 8</tt>  <tt class="py-line"><tt id="link-4" class="py-name"><a title="manager.cache_manager_setup.files
+manager.mcp_report_setup.files" class="py-name" href="#" onclick="return doclink('link-4', 'files', 'link-1');">files</a></tt><tt class="py-op">.</tt><tt class="py-name">append</tt><tt class="py-op">(</tt><tt class="py-op">(</tt><tt class="py-string">"def"</tt><tt class="py-op">,</tt><tt class="py-op">[</tt><tt id="link-5" class="py-name"><a title="manager.cache_manager_setup.path
+manager.mcp_report_setup.path" class="py-name" href="#" onclick="return doclink('link-5', 'path', 'link-0');">path</a></tt> <tt class="py-op">+</tt> <tt class="py-string">"def\\activity_def.dat"</tt><tt class="py-op">,</tt><tt id="link-6" class="py-name"><a title="manager.cache_manager_setup.path
+manager.mcp_report_setup.path" class="py-name" href="#" onclick="return doclink('link-6', 'path', 'link-0');">path</a></tt> <tt class="py-op">+</tt> <tt class="py-string">"def\\activity_res.dat"</tt><tt class="py-op">,</tt> </tt>
+<a name="L9"></a><tt class="py-lineno"> 9</tt>  <tt class="py-line">                     <tt id="link-7" class="py-name"><a title="manager.cache_manager_setup.path
+manager.mcp_report_setup.path" class="py-name" href="#" onclick="return doclink('link-7', 'path', 'link-0');">path</a></tt> <tt class="py-op">+</tt> <tt class="py-string">"def\\focus_list_only_def.dat"</tt><tt class="py-op">,</tt><tt id="link-8" class="py-name"><a title="manager.cache_manager_setup.path
+manager.mcp_report_setup.path" class="py-name" href="#" onclick="return doclink('link-8', 'path', 'link-0');">path</a></tt> <tt class="py-op">+</tt> <tt class="py-string">"def\\focus_list_only_res.dat"</tt><tt class="py-op">,</tt> </tt>
+<a name="L10"></a><tt class="py-lineno">10</tt>  <tt class="py-line">                     <tt id="link-9" class="py-name"><a title="manager.cache_manager_setup.path
+manager.mcp_report_setup.path" class="py-name" href="#" onclick="return doclink('link-9', 'path', 'link-0');">path</a></tt> <tt class="py-op">+</tt> <tt class="py-string">"def\\fund_def.dat"</tt><tt class="py-op">,</tt><tt id="link-10" class="py-name"><a title="manager.cache_manager_setup.path
+manager.mcp_report_setup.path" class="py-name" href="#" onclick="return doclink('link-10', 'path', 'link-0');">path</a></tt> <tt class="py-op">+</tt> <tt class="py-string">"def\\fund_res.dat"</tt><tt class="py-op">,</tt> </tt>
+<a name="L11"></a><tt class="py-lineno">11</tt>  <tt class="py-line">                     <tt id="link-11" class="py-name"><a title="manager.cache_manager_setup.path
+manager.mcp_report_setup.path" class="py-name" href="#" onclick="return doclink('link-11', 'path', 'link-0');">path</a></tt> <tt class="py-op">+</tt> <tt class="py-string">"def\\intern_trans_def.dat"</tt><tt class="py-op">,</tt><tt id="link-12" class="py-name"><a title="manager.cache_manager_setup.path
+manager.mcp_report_setup.path" class="py-name" href="#" onclick="return doclink('link-12', 'path', 'link-0');">path</a></tt> <tt class="py-op">+</tt> <tt class="py-string">"def\\intern_trans_res.dat"</tt><tt class="py-op">,</tt> </tt>
+<a name="L12"></a><tt class="py-lineno">12</tt>  <tt class="py-line">                     <tt id="link-13" class="py-name"><a title="manager.cache_manager_setup.path
+manager.mcp_report_setup.path" class="py-name" href="#" onclick="return doclink('link-13', 'path', 'link-0');">path</a></tt> <tt class="py-op">+</tt> <tt class="py-string">"def\\invested_and_focus_list_def.dat"</tt><tt class="py-op">,</tt><tt id="link-14" class="py-name"><a title="manager.cache_manager_setup.path
+manager.mcp_report_setup.path" class="py-name" href="#" onclick="return doclink('link-14', 'path', 'link-0');">path</a></tt> <tt class="py-op">+</tt> <tt class="py-string">"def\\invested_and_focus_list_res.dat"</tt><tt class="py-op">,</tt> </tt>
+<a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line">                     <tt id="link-15" class="py-name"><a title="manager.cache_manager_setup.path
+manager.mcp_report_setup.path" class="py-name" href="#" onclick="return doclink('link-15', 'path', 'link-0');">path</a></tt> <tt class="py-op">+</tt> <tt class="py-string">"def\\invested_only_def.dat"</tt><tt class="py-op">,</tt><tt id="link-16" class="py-name"><a title="manager.cache_manager_setup.path
+manager.mcp_report_setup.path" class="py-name" href="#" onclick="return doclink('link-16', 'path', 'link-0');">path</a></tt> <tt class="py-op">+</tt> <tt class="py-string">"def\\invested_only_res.dat"</tt><tt class="py-op">,</tt> </tt>
+<a name="L14"></a><tt class="py-lineno">14</tt>  <tt class="py-line">                     <tt id="link-17" class="py-name"><a title="manager.cache_manager_setup.path
+manager.mcp_report_setup.path" class="py-name" href="#" onclick="return doclink('link-17', 'path', 'link-0');">path</a></tt> <tt class="py-op">+</tt> <tt class="py-string">"def\\MCPFAI_def.dat"</tt><tt class="py-op">,</tt><tt id="link-18" class="py-name"><a title="manager.cache_manager_setup.path
+manager.mcp_report_setup.path" class="py-name" href="#" onclick="return doclink('link-18', 'path', 'link-0');">path</a></tt> <tt class="py-op">+</tt> <tt class="py-string">"def\\MCPFAI_res.dat"</tt><tt class="py-op">,</tt> </tt>
+<a name="L15"></a><tt class="py-lineno">15</tt>  <tt class="py-line">                     <tt id="link-19" class="py-name"><a title="manager.cache_manager_setup.path
+manager.mcp_report_setup.path" class="py-name" href="#" onclick="return doclink('link-19', 'path', 'link-0');">path</a></tt> <tt class="py-op">+</tt> <tt class="py-string">"def\\people_orgs_def.dat"</tt><tt class="py-op">,</tt><tt id="link-20" class="py-name"><a title="manager.cache_manager_setup.path
+manager.mcp_report_setup.path" class="py-name" href="#" onclick="return doclink('link-20', 'path', 'link-0');">path</a></tt> <tt class="py-op">+</tt> <tt class="py-string">"def\\people_orgs_res.dat"</tt><tt class="py-op">,</tt> </tt>
+<a name="L16"></a><tt class="py-lineno">16</tt>  <tt class="py-line">                     <tt id="link-21" class="py-name"><a title="manager.cache_manager_setup.path
+manager.mcp_report_setup.path" class="py-name" href="#" onclick="return doclink('link-21', 'path', 'link-0');">path</a></tt> <tt class="py-op">+</tt> <tt class="py-string">"def\\port_trans_def.dat"</tt><tt class="py-op">,</tt><tt id="link-22" class="py-name"><a title="manager.cache_manager_setup.path
+manager.mcp_report_setup.path" class="py-name" href="#" onclick="return doclink('link-22', 'path', 'link-0');">path</a></tt> <tt class="py-op">+</tt> <tt class="py-string">"def\\port_trans_res.dat"</tt><tt class="py-op">,</tt> </tt>
+<a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line">                     <tt id="link-23" class="py-name"><a title="manager.cache_manager_setup.path
+manager.mcp_report_setup.path" class="py-name" href="#" onclick="return doclink('link-23', 'path', 'link-0');">path</a></tt> <tt class="py-op">+</tt> <tt class="py-string">"def\\additional_managers_def.dat"</tt><tt class="py-op">,</tt> </tt>
+<a name="L18"></a><tt class="py-lineno">18</tt>  <tt class="py-line">                     <tt id="link-24" class="py-name"><a title="manager.cache_manager_setup.path
+manager.mcp_report_setup.path" class="py-name" href="#" onclick="return doclink('link-24', 'path', 'link-0');">path</a></tt> <tt class="py-op">+</tt> <tt class="py-string">"def\\all_funds_def.dat"</tt><tt class="py-op">,</tt> </tt>
+<a name="L19"></a><tt class="py-lineno">19</tt>  <tt class="py-line">                     <tt id="link-25" class="py-name"><a title="manager.cache_manager_setup.path
+manager.mcp_report_setup.path" class="py-name" href="#" onclick="return doclink('link-25', 'path', 'link-0');">path</a></tt> <tt class="py-op">+</tt> <tt class="py-string">"def\\product_def.dat"</tt><tt class="py-op">,</tt><tt id="link-26" class="py-name"><a title="manager.cache_manager_setup.path
+manager.mcp_report_setup.path" class="py-name" href="#" onclick="return doclink('link-26', 'path', 'link-0');">path</a></tt> <tt class="py-op">+</tt> <tt class="py-string">"def\\product_res.dat"</tt><tt class="py-op">]</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L20"></a><tt class="py-lineno">20</tt>  <tt class="py-line"> </tt>
+<a name="L21"></a><tt class="py-lineno">21</tt>  <tt class="py-line"><tt id="link-27" class="py-name"><a title="manager.cache_manager_setup.files
+manager.mcp_report_setup.files" class="py-name" href="#" onclick="return doclink('link-27', 'files', 'link-1');">files</a></tt><tt class="py-op">.</tt><tt class="py-name">append</tt><tt class="py-op">(</tt><tt class="py-op">(</tt><tt class="py-string">"macros"</tt><tt class="py-op">,</tt><tt class="py-op">[</tt><tt id="link-28" class="py-name"><a title="manager.cache_manager_setup.path
+manager.mcp_report_setup.path" class="py-name" href="#" onclick="return doclink('link-28', 'path', 'link-0');">path</a></tt> <tt class="py-op">+</tt> <tt class="py-string">"macros\\SortUF.frm"</tt><tt class="py-op">,</tt><tt id="link-29" class="py-name"><a title="manager.cache_manager_setup.path
+manager.mcp_report_setup.path" class="py-name" href="#" onclick="return doclink('link-29', 'path', 'link-0');">path</a></tt> <tt class="py-op">+</tt> <tt class="py-string">"macros\\SortUF.frx"</tt><tt class="py-op">,</tt> </tt>
+<a name="L22"></a><tt class="py-lineno">22</tt>  <tt class="py-line">                        <tt id="link-30" class="py-name"><a title="manager.cache_manager_setup.path
+manager.mcp_report_setup.path" class="py-name" href="#" onclick="return doclink('link-30', 'path', 'link-0');">path</a></tt> <tt class="py-op">+</tt> <tt class="py-string">"macros\\SortUF2.frm"</tt><tt class="py-op">,</tt><tt id="link-31" class="py-name"><a title="manager.cache_manager_setup.path
+manager.mcp_report_setup.path" class="py-name" href="#" onclick="return doclink('link-31', 'path', 'link-0');">path</a></tt> <tt class="py-op">+</tt> <tt class="py-string">"macros\\SortUF2.frx"</tt><tt class="py-op">,</tt> </tt>
+<a name="L23"></a><tt class="py-lineno">23</tt>  <tt class="py-line">                        <tt id="link-32" class="py-name"><a title="manager.cache_manager_setup.path
+manager.mcp_report_setup.path" class="py-name" href="#" onclick="return doclink('link-32', 'path', 'link-0');">path</a></tt> <tt class="py-op">+</tt> <tt class="py-string">"macros\\SortUF.log"</tt><tt class="py-op">,</tt><tt id="link-33" class="py-name"><a title="manager.cache_manager_setup.path
+manager.mcp_report_setup.path" class="py-name" href="#" onclick="return doclink('link-33', 'path', 'link-0');">path</a></tt> <tt class="py-op">+</tt> <tt class="py-string">"macros\\Statistics Report Formatting.bas"</tt><tt class="py-op">]</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L24"></a><tt class="py-lineno">24</tt>  <tt class="py-line"> </tt>
+<a name="L25"></a><tt class="py-lineno">25</tt>  <tt class="py-line"><tt id="link-34" class="py-name"><a title="manager.cache_manager_setup.files
+manager.mcp_report_setup.files" class="py-name" href="#" onclick="return doclink('link-34', 'files', 'link-1');">files</a></tt><tt class="py-op">.</tt><tt class="py-name">append</tt><tt class="py-op">(</tt><tt class="py-op">(</tt><tt class="py-string">""</tt><tt class="py-op">,</tt><tt class="py-op">[</tt><tt class="py-string">"MCP Report Manager Tutorial.doc"</tt><tt class="py-op">]</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L26"></a><tt class="py-lineno">26</tt>  <tt class="py-line"> </tt>
+<a name="L27"></a><tt class="py-lineno">27</tt>  <tt class="py-line"><tt class="py-name">setup</tt><tt class="py-op">(</tt> </tt>
+<a name="L28"></a><tt class="py-lineno">28</tt>  <tt class="py-line">        <tt class="py-name">windows</tt><tt class="py-op">=</tt><tt class="py-op">[</tt><tt class="py-string">'MCPReportManager.py'</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> </tt>
+<a name="L29"></a><tt class="py-lineno">29</tt>  <tt class="py-line">        <tt class="py-name">data_files</tt> <tt class="py-op">=</tt> <tt id="link-35" class="py-name"><a title="manager.cache_manager_setup.files
+manager.mcp_report_setup.files" class="py-name" href="#" onclick="return doclink('link-35', 'files', 'link-1');">files</a></tt><tt class="py-op">,</tt> </tt>
+<a name="L30"></a><tt class="py-lineno">30</tt>  <tt class="py-line">        <tt class="py-name">options</tt><tt class="py-op">=</tt><tt class="py-op">{</tt> </tt>
+<a name="L31"></a><tt class="py-lineno">31</tt>  <tt class="py-line">                 <tt class="py-string">"py2exe"</tt><tt class="py-op">:</tt><tt class="py-op">{</tt> </tt>
+<a name="L32"></a><tt class="py-lineno">32</tt>  <tt class="py-line">                           <tt class="py-string">"optimize"</tt><tt class="py-op">:</tt><tt class="py-number">2</tt> </tt>
+<a name="L33"></a><tt class="py-lineno">33</tt>  <tt class="py-line">                           <tt class="py-op">}</tt> </tt>
+<a name="L34"></a><tt class="py-lineno">34</tt>  <tt class="py-line">                 <tt class="py-op">}</tt> </tt>
+<a name="L35"></a><tt class="py-lineno">35</tt>  <tt class="py-line">      <tt class="py-op">)</tt> </tt>
+<a name="L36"></a><tt class="py-lineno">36</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="manager-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Jul 19 12:06:09 2010
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

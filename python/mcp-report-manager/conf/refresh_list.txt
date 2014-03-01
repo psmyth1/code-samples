@@ -1,0 +1,7 @@
+main.exe::FILE
+tmp.dat::FILE
+current_version.dat::FILE
+MCP Report Manager Tutorial.doc::FILE
+def::FOLDER
+macros::FOLDER
+

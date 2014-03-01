@@ -1,0 +1,151 @@
+Generated File. Do not edit.
+
+[HEADER]
+Version|0.11|$
+
+[PLUGINS]
+npwmsdrm.dll|$
+C:\Program Files\Windows Media Player\npwmsdrm.dll|$
+9.0.0.4503|$
+1208174400000|1|1|$
+DRM Store Netscape Plugin|$
+Microsoft® DRM|$
+1
+0|application/x-drm|Network Interface Plugin|nip|$
+npdsplay.dll|$
+C:\Program Files\Windows Media Player\npdsplay.dll|$
+3.0.2.629|$
+1208174400000|1|1|$
+Npdsplay dll|$
+Windows Media Player Plug-in Dynamic Link Library|$
+9
+0|application/asx|Media Files|*|$
+1|video/x-ms-asf-plugin|Media Files|*|$
+2|application/x-mplayer2|Media Files|*|$
+3|video/x-ms-asf|Media Files|asf,asx,*|$
+4|video/x-ms-wm|Media Files|wm,*|$
+5|audio/x-ms-wma|Media Files|wma,*|$
+6|audio/x-ms-wax|Media Files|wax,*|$
+7|video/x-ms-wmv|Media Files|wmv,*|$
+8|video/x-ms-wvx|Media Files|wvx,*|$
+npdrmv2.dll|$
+C:\Program Files\Windows Media Player\npdrmv2.dll|$
+9.0.0.4503|$
+1208174400000|1|1|$
+DRM Netscape Network Object|$
+Microsoft® DRM|$
+1
+0|application/x-drm-v2|Network Interface Plugin|nip|$
+nppdf32.dll|$
+C:\Program Files\Adobe\Reader 9.0\Reader\browser\nppdf32.dll|$
+9.3.3.177|$
+1276976051000|1|1|$
+Adobe PDF Plug-In For Firefox and Netscape "9.3.3"|$
+Adobe Acrobat|$
+7
+0|application/pdf|Acrobat Portable Document Format|pdf|$
+1|application/vnd.adobe.pdfxml|Adobe PDF in XML Format|pdfxml|$
+2|application/vnd.adobe.x-mars|Adobe PDF in XML Format|mars|$
+3|application/vnd.fdf|Acrobat Forms Data Format|fdf|$
+4|application/vnd.adobe.xfdf|XML Version of Acrobat Forms Data Format|xfdf|$
+5|application/vnd.adobe.xdp+xml| Acrobat XML Data Package|xdp|$
+6|application/vnd.adobe.xfd+xml|Adobe FormFlow99 Data File|xfd|$
+npdeployJava1.dll|$
+C:\Program Files\Java\jre6\bin\new_plugin\npdeployJava1.dll|$
+6.0.200.2|$
+1277756952342|1|1|$
+NPRuntime Script Plug-in Library for Java(TM) Deploy|$
+Java Deployment Toolkit 6.0.200.2|$
+1
+0|application/java-deployment-toolkit|||$
+npjp2.dll|$
+C:\Program Files\Java\jre6\bin\new_plugin\npjp2.dll|$
+6.0.200.2|$
+1277756952311|1|1|$
+Next Generation Java Plug-in 1.6.0_20 for Mozilla browsers|$
+Java(TM) Platform SE 6 U20|$
+34
+0|application/x-java-applet|Java Applet||$
+1|application/x-java-bean|JavaBeans||$
+2|application/x-java-vm|||$
+3|application/x-java-applet;version=1.1.1|||$
+4|application/x-java-bean;version=1.1.1|||$
+5|application/x-java-applet;version=1.1|||$
+6|application/x-java-bean;version=1.1|||$
+7|application/x-java-applet;version=1.2|||$
+8|application/x-java-bean;version=1.2|||$
+9|application/x-java-applet;version=1.1.3|||$
+10|application/x-java-bean;version=1.1.3|||$
+11|application/x-java-applet;version=1.1.2|||$
+12|application/x-java-bean;version=1.1.2|||$
+13|application/x-java-applet;version=1.3|||$
+14|application/x-java-bean;version=1.3|||$
+15|application/x-java-applet;version=1.2.2|||$
+16|application/x-java-bean;version=1.2.2|||$
+17|application/x-java-applet;version=1.2.1|||$
+18|application/x-java-bean;version=1.2.1|||$
+19|application/x-java-applet;version=1.3.1|||$
+20|application/x-java-bean;version=1.3.1|||$
+21|application/x-java-applet;version=1.4|||$
+22|application/x-java-bean;version=1.4|||$
+23|application/x-java-applet;version=1.4.1|||$
+24|application/x-java-bean;version=1.4.1|||$
+25|application/x-java-applet;version=1.4.2|||$
+26|application/x-java-bean;version=1.4.2|||$
+27|application/x-java-applet;version=1.5|||$
+28|application/x-java-bean;version=1.5|||$
+29|application/x-java-applet;version=1.6|||$
+30|application/x-java-bean;version=1.6|||$
+31|application/x-java-applet;jpi-version=1.6.0_20|||$
+32|application/x-java-bean;jpi-version=1.6.0_20|||$
+33|application/x-java-vm-npruntime|||$
+nppl3260.dll|$
+C:\Program Files\Real Alternative\browser\plugins\nppl3260.dll|$
+6.0.12.69|$
+1221076604000|1|1|$
+RealPlayer(tm) LiveConnect-Enabled Plug-In|$
+RealPlayer(tm) G2 LiveConnect-Enabled Plug-In (32-bit) |$
+1
+0|audio/x-pn-realaudio-plugin|RealPlayer(tm) as Plug-in|rpm|$
+nprpjplug.dll|$
+C:\Program Files\Real Alternative\browser\plugins\nprpjplug.dll|$
+6.0.12.69|$
+1221075474000|1|1|$
+6.0.12.69|$
+RealPlayer Version Plugin|$
+1
+0|application/vnd.rn-realplayer-javascript|RealPlayer Version Plugin|rpj|$
+NPWPF.dll|$
+c:\WINDOWS\Microsoft.NET\Framework\v3.5\Windows Presentation Foundation\NPWPF.dll|$
+3.5.30729.1|$
+1217389248000|1|1|$
+Windows Presentation Foundation (WPF) plug-in for Mozilla browsers|$
+Windows Presentation Foundation|$
+2
+0|application/x-ms-xbap|XAML Browser Application|xbap|$
+1|application/xaml+xml|XAML Document|xaml|$
+NPSWF32.dll|$
+C:\WINDOWS\system32\Macromed\Flash\NPSWF32.dll|$
+10.0.45.2|$
+1264554452000|1|1|$
+Shockwave Flash 10.0 r45|$
+Shockwave Flash|$
+2
+0|application/x-shockwave-flash|Adobe Flash movie|swf|$
+1|application/futuresplash|FutureSplash movie|spl|$
+npGoogleOneClick8.dll|$
+C:\Documents and Settings\psmyth\Local Settings\Application Data\Google\Update\1.2.183.29\npGoogleOneClick8.dll|$
+1.2.183.29|$
+1279138583986|1|1|$
+Google Update|$
+Google Update|$
+1
+0|application/x-vnd.google.oneclickctrl.8|||$
+npnul32.dll|$
+C:\Documents and Settings\psmyth\Desktop\firefox\FirefoxPortable\App\firefox\plugins\npnul32.dll|$
+1.0.0.15|$
+1279850830000|1|1|$
+Default Plug-in|$
+Mozilla Default Plug-in|$
+1
+0|*|Mozilla Default Plug-in|*|$

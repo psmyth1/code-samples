@@ -1,0 +1,1 @@
+${(in(report.field3, "[\"100755\",\"100627\"]")) && (report.field24 == 'Yes')}

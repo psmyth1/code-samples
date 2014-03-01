@@ -1,0 +1,1 @@
+${(report.field1 == '1Meridian Capital Fund, LLC - domestic, 1%/10%') || (report.field1 == '1Meridian Performance Partners, L.P. - A Limited Partnership Interests') || (report.field1 == 'S&P 500') || (report.field1 == 'ML 90-Day US T-Bill')}

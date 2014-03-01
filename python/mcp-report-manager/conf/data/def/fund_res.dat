@@ -1,0 +1,1 @@
+${(in(report.field5, "[\"100627\"]")) && (report.field42 > 0)}

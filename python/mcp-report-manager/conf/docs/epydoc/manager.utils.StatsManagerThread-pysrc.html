@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>manager.utils.StatsManagerThread</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="manager-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="manager-module.html">Package&nbsp;manager</a> ::
+        <a href="manager.utils-module.html">Package&nbsp;utils</a> ::
+        Module&nbsp;StatsManagerThread
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="manager.utils.StatsManagerThread-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="manager.utils.StatsManagerThread-module.html">Module manager.utils.StatsManagerThread</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno"> 1</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">threading</tt> </tt>
+<a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">ctypes</tt> </tt>
+<a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">pythoncom</tt> <tt class="py-keyword">import</tt> <tt class="py-name">CoInitialize</tt> </tt>
+<a name="L4"></a><tt class="py-lineno"> 4</tt>  <tt class="py-line"> </tt>
+<a name="_async_raise"></a><div id="_async_raise-def"><a name="L5"></a><tt class="py-lineno"> 5</tt> <a class="py-toggle" href="#" id="_async_raise-toggle" onclick="return toggle('_async_raise');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="manager.utils.StatsManagerThread-module.html#_async_raise">_async_raise</a><tt class="py-op">(</tt><tt class="py-param">tid</tt><tt class="py-op">,</tt> <tt class="py-param">excobj</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="_async_raise-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="_async_raise-expanded"><a name="L6"></a><tt class="py-lineno"> 6</tt>  <tt class="py-line">    <tt class="py-name">res</tt> <tt class="py-op">=</tt> <tt class="py-name">ctypes</tt><tt class="py-op">.</tt><tt class="py-name">pythonapi</tt><tt class="py-op">.</tt><tt class="py-name">PyThreadState_SetAsyncExc</tt><tt class="py-op">(</tt><tt class="py-name">tid</tt><tt class="py-op">,</tt> <tt class="py-name">ctypes</tt><tt class="py-op">.</tt><tt class="py-name">py_object</tt><tt class="py-op">(</tt><tt class="py-name">excobj</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L7"></a><tt class="py-lineno"> 7</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">res</tt> <tt class="py-op">==</tt> <tt class="py-number">0</tt><tt class="py-op">:</tt> </tt>
+<a name="L8"></a><tt class="py-lineno"> 8</tt>  <tt class="py-line">        <tt class="py-keyword">raise</tt> <tt class="py-name">ValueError</tt><tt class="py-op">(</tt><tt class="py-string">"nonexistent thread id"</tt><tt class="py-op">)</tt> </tt>
+<a name="L9"></a><tt class="py-lineno"> 9</tt>  <tt class="py-line">    <tt class="py-keyword">elif</tt> <tt class="py-name">res</tt> <tt class="py-op">&gt;</tt> <tt class="py-number">1</tt><tt class="py-op">:</tt> </tt>
+<a name="L10"></a><tt class="py-lineno">10</tt>  <tt class="py-line">        <tt class="py-name">ctypes</tt><tt class="py-op">.</tt><tt class="py-name">pythonapi</tt><tt class="py-op">.</tt><tt class="py-name">PyThreadState_SetAsyncExc</tt><tt class="py-op">(</tt><tt class="py-name">tid</tt><tt class="py-op">,</tt> <tt class="py-number">0</tt><tt class="py-op">)</tt> </tt>
+<a name="L11"></a><tt class="py-lineno">11</tt>  <tt class="py-line">        <tt class="py-keyword">raise</tt> <tt class="py-name">SystemError</tt><tt class="py-op">(</tt><tt class="py-string">"PyThreadState_SetAsyncExc failed"</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L12"></a><tt class="py-lineno">12</tt>  <tt class="py-line">     </tt>
+<a name="StatsManagerThread"></a><div id="StatsManagerThread-def"><a name="L13"></a><tt class="py-lineno">13</tt> <a class="py-toggle" href="#" id="StatsManagerThread-toggle" onclick="return toggle('StatsManagerThread');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="manager.utils.StatsManagerThread.StatsManagerThread-class.html">StatsManagerThread</a><tt class="py-op">(</tt><tt class="py-base-class">threading</tt><tt class="py-op">.</tt><tt class="py-base-class">Thread</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="StatsManagerThread-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="StatsManagerThread-expanded"><a name="StatsManagerThread.__init__"></a><div id="StatsManagerThread.__init__-def"><a name="L14"></a><tt class="py-lineno">14</tt> <a class="py-toggle" href="#" id="StatsManagerThread.__init__-toggle" onclick="return toggle('StatsManagerThread.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="manager.utils.StatsManagerThread.StatsManagerThread-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt><tt class="py-param">stats_obj</tt><tt class="py-op">,</tt><tt class="py-param">args</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="StatsManagerThread.__init__-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="StatsManagerThread.__init__-expanded"><a name="L15"></a><tt class="py-lineno">15</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">stats</tt> <tt class="py-op">=</tt> <tt class="py-name">stats_obj</tt> </tt>
+<a name="L16"></a><tt class="py-lineno">16</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">args</tt> <tt class="py-op">=</tt> <tt class="py-name">args</tt>  </tt>
+<a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">status</tt> <tt class="py-op">=</tt> <tt class="py-number">1</tt>            </tt>
+<a name="L18"></a><tt class="py-lineno">18</tt>  <tt class="py-line">        <tt class="py-name">threading</tt><tt class="py-op">.</tt><tt class="py-name">Thread</tt><tt class="py-op">.</tt><tt id="link-0" class="py-name" targets="Method manager.CacheManager.CacheManager.__init__()=manager.CacheManager.CacheManager-class.html#__init__,Method manager.HoldingSummaryModule.HoldingSummaryModule.__init__()=manager.HoldingSummaryModule.HoldingSummaryModule-class.html#__init__,Method manager.MCPReportManager.MCPReportManager.__init__()=manager.MCPReportManager.MCPReportManager-class.html#__init__,Method manager.MISModule.MISModule.__init__()=manager.MISModule.MISModule-class.html#__init__,Method manager.StatsModule.StatsModule.__init__()=manager.StatsModule.StatsModule-class.html#__init__,Method manager.utils.BackStopDataManager.BackStopDataManager.__init__()=manager.utils.BackStopDataManager.BackStopDataManager-class.html#__init__,Method manager.utils.CacheUpdater.CacheUpdater.__init__()=manager.utils.CacheUpdater.CacheUpdater-class.html#__init__,Method manager.utils.CheckFilename.CheckFilename.__init__()=manager.utils.CheckFilename.CheckFilename-class.html#__init__,Method manager.utils.Contact.Contact.__init__()=manager.utils.Contact.Contact-class.html#__init__,Method manager.utils.Firm.Firm.__init__()=manager.utils.Firm.Firm-class.html#__init__,Method manager.utils.Fund.Fund.__init__()=manager.utils.Fund.Fund-class.html#__init__,Method manager.utils.FundManager.FundManager.__init__()=manager.utils.FundManager.FundManager-class.html#__init__,Method manager.utils.FundManagerCacheDownloadThread.FundManagerCacheDownloadThread.__init__()=manager.utils.FundManagerCacheDownloadThread.FundManagerCacheDownloadThread-class.html#__init__,Method manager.utils.FundSummaryGenerator.FundSummaryGenerator.__init__()=manager.utils.FundSummaryGenerator.FundSummaryGenerator-class.html#__init__,Method manager.utils.Holding.Holding.__init__()=manager.utils.Holding.Holding-class.html#__init__,Method manager.utils.MISCacheUpdater.MISCacheUpdater.__init__()=manager.utils.MISCacheUpdater.MISCacheUpdater-class.html#__init__,Method manager.utils.MISReportGenerator.MISReportGenerator.__init__()=manager.utils.MISReportGenerator.MISReportGenerator-class.html#__init__,Method manager.utils.ManagerListThread.ManagerListThread.__init__()=manager.utils.ManagerListThread.ManagerListThread-class.html#__init__,Method manager.utils.Meeting.Meeting.__init__()=manager.utils.Meeting.Meeting-class.html#__init__,Method manager.utils.Party.Party.__init__()=manager.utils.Party.Party-class.html#__init__,Method manager.utils.Product.Product.__init__()=manager.utils.Product.Product-class.html#__init__,Method manager.utils.Splash.Splash.__init__()=manager.utils.Splash.Splash-class.html#__init__,Method manager.utils.Statistics.Statistics.__init__()=manager.utils.Statistics.Statistics-class.html#__init__,Method manager.utils.StatisticsCalculations.StatisticsCalculations.__init__()=manager.utils.StatisticsCalculations.StatisticsCalculations-class.html#__init__,Method manager.utils.StatisticsReport.StatisticsReport.__init__()=manager.utils.StatisticsReport.StatisticsReport-class.html#__init__,Method manager.utils.StatisticsReportFromCache.StatisticsReportFromCache.__init__()=manager.utils.StatisticsReportFromCache.StatisticsReportFromCache-class.html#__init__,Method manager.utils.StatisticsReportPeerGroup.StatisticsReportPeerGroup.__init__()=manager.utils.StatisticsReportPeerGroup.StatisticsReportPeerGroup-class.html#__init__,Method manager.utils.StatisticsReportPeerGroupFromCache.StatisticsReportPeerGroupFromCache.__init__()=manager.utils.StatisticsReportPeerGroupFromCache.StatisticsReportPeerGroupFromCache-class.html#__init__,Method manager.utils.StatsCacheUpdater.StatsCacheUpdater.__init__()=manager.utils.StatsCacheUpdater.StatsCacheUpdater-class.html#__init__,Method manager.utils.StatsManagerThread.StatsManagerThread.__init__()=manager.utils.StatsManagerThread.StatsManagerThread-class.html#__init__,Method manager.utils.Transaction.Transaction.__init__()=manager.utils.Transaction.Transaction-class.html#__init__"><a title="manager.CacheManager.CacheManager.__init__
+manager.HoldingSummaryModule.HoldingSummaryModule.__init__
+manager.MCPReportManager.MCPReportManager.__init__
+manager.MISModule.MISModule.__init__
+manager.StatsModule.StatsModule.__init__
+manager.utils.BackStopDataManager.BackStopDataManager.__init__
+manager.utils.CacheUpdater.CacheUpdater.__init__
+manager.utils.CheckFilename.CheckFilename.__init__
+manager.utils.Contact.Contact.__init__
+manager.utils.Firm.Firm.__init__
+manager.utils.Fund.Fund.__init__
+manager.utils.FundManager.FundManager.__init__
+manager.utils.FundManagerCacheDownloadThread.FundManagerCacheDownloadThread.__init__
+manager.utils.FundSummaryGenerator.FundSummaryGenerator.__init__
+manager.utils.Holding.Holding.__init__
+manager.utils.MISCacheUpdater.MISCacheUpdater.__init__
+manager.utils.MISReportGenerator.MISReportGenerator.__init__
+manager.utils.ManagerListThread.ManagerListThread.__init__
+manager.utils.Meeting.Meeting.__init__
+manager.utils.Party.Party.__init__
+manager.utils.Product.Product.__init__
+manager.utils.Splash.Splash.__init__
+manager.utils.Statistics.Statistics.__init__
+manager.utils.StatisticsCalculations.StatisticsCalculations.__init__
+manager.utils.StatisticsReport.StatisticsReport.__init__
+manager.utils.StatisticsReportFromCache.StatisticsReportFromCache.__init__
+manager.utils.StatisticsReportPeerGroup.StatisticsReportPeerGroup.__init__
+manager.utils.StatisticsReportPeerGroupFromCache.StatisticsReportPeerGroupFromCache.__init__
+manager.utils.StatsCacheUpdater.StatsCacheUpdater.__init__
+manager.utils.StatsManagerThread.StatsManagerThread.__init__
+manager.utils.Transaction.Transaction.__init__" class="py-name" href="#" onclick="return doclink('link-0', '__init__', 'link-0');">__init__</a></tt> <tt class="py-op">(</tt> <tt class="py-name">self</tt> <tt class="py-op">)</tt> </tt>
+</div><a name="L19"></a><tt class="py-lineno">19</tt>  <tt class="py-line">     </tt>
+<a name="StatsManagerThread.run"></a><div id="StatsManagerThread.run-def"><a name="L20"></a><tt class="py-lineno">20</tt> <a class="py-toggle" href="#" id="StatsManagerThread.run-toggle" onclick="return toggle('StatsManagerThread.run');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="manager.utils.StatsManagerThread.StatsManagerThread-class.html#run">run</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="StatsManagerThread.run-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="StatsManagerThread.run-expanded"><a name="L21"></a><tt class="py-lineno">21</tt>  <tt class="py-line">        <tt class="py-name">args</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">args</tt> </tt>
+<a name="L22"></a><tt class="py-lineno">22</tt>  <tt class="py-line">        <tt class="py-name">CoInitialize</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L23"></a><tt class="py-lineno">23</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">args</tt><tt class="py-op">)</tt> <tt class="py-op">==</tt> <tt class="py-number">3</tt><tt class="py-op">:</tt> </tt>
+<a name="L24"></a><tt class="py-lineno">24</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">stats</tt><tt class="py-op">.</tt><tt id="link-1" class="py-name" targets="Method manager.utils.StatisticsReport.StatisticsReport.GenerateReport()=manager.utils.StatisticsReport.StatisticsReport-class.html#GenerateReport,Method manager.utils.StatisticsReportFromCache.StatisticsReportFromCache.GenerateReport()=manager.utils.StatisticsReportFromCache.StatisticsReportFromCache-class.html#GenerateReport,Method manager.utils.StatisticsReportPeerGroup.StatisticsReportPeerGroup.GenerateReport()=manager.utils.StatisticsReportPeerGroup.StatisticsReportPeerGroup-class.html#GenerateReport,Method manager.utils.StatisticsReportPeerGroupFromCache.StatisticsReportPeerGroupFromCache.GenerateReport()=manager.utils.StatisticsReportPeerGroupFromCache.StatisticsReportPeerGroupFromCache-class.html#GenerateReport"><a title="manager.utils.StatisticsReport.StatisticsReport.GenerateReport
+manager.utils.StatisticsReportFromCache.StatisticsReportFromCache.GenerateReport
+manager.utils.StatisticsReportPeerGroup.StatisticsReportPeerGroup.GenerateReport
+manager.utils.StatisticsReportPeerGroupFromCache.StatisticsReportPeerGroupFromCache.GenerateReport" class="py-name" href="#" onclick="return doclink('link-1', 'GenerateReport', 'link-1');">GenerateReport</a></tt><tt class="py-op">(</tt><tt class="py-name">args</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">,</tt><tt class="py-name">args</tt><tt class="py-op">[</tt><tt class="py-number">1</tt><tt class="py-op">]</tt><tt class="py-op">,</tt><tt class="py-name">args</tt><tt class="py-op">[</tt><tt class="py-number">2</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L25"></a><tt class="py-lineno">25</tt>  <tt class="py-line">        <tt class="py-keyword">elif</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">args</tt><tt class="py-op">)</tt> <tt class="py-op">==</tt> <tt class="py-number">4</tt><tt class="py-op">:</tt> </tt>
+<a name="L26"></a><tt class="py-lineno">26</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">stats</tt><tt class="py-op">.</tt><tt id="link-2" class="py-name"><a title="manager.utils.StatisticsReport.StatisticsReport.GenerateReport
+manager.utils.StatisticsReportFromCache.StatisticsReportFromCache.GenerateReport
+manager.utils.StatisticsReportPeerGroup.StatisticsReportPeerGroup.GenerateReport
+manager.utils.StatisticsReportPeerGroupFromCache.StatisticsReportPeerGroupFromCache.GenerateReport" class="py-name" href="#" onclick="return doclink('link-2', 'GenerateReport', 'link-1');">GenerateReport</a></tt><tt class="py-op">(</tt><tt class="py-name">args</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">,</tt><tt class="py-name">args</tt><tt class="py-op">[</tt><tt class="py-number">1</tt><tt class="py-op">]</tt><tt class="py-op">,</tt><tt class="py-name">args</tt><tt class="py-op">[</tt><tt class="py-number">2</tt><tt class="py-op">]</tt><tt class="py-op">,</tt><tt class="py-name">args</tt><tt class="py-op">[</tt><tt class="py-number">3</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L27"></a><tt class="py-lineno">27</tt>  <tt class="py-line">        <tt class="py-keyword">elif</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">args</tt><tt class="py-op">)</tt> <tt class="py-op">==</tt> <tt class="py-number">5</tt><tt class="py-op">:</tt> </tt>
+<a name="L28"></a><tt class="py-lineno">28</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">stats</tt><tt class="py-op">.</tt><tt id="link-3" class="py-name"><a title="manager.utils.StatisticsReport.StatisticsReport.GenerateReport
+manager.utils.StatisticsReportFromCache.StatisticsReportFromCache.GenerateReport
+manager.utils.StatisticsReportPeerGroup.StatisticsReportPeerGroup.GenerateReport
+manager.utils.StatisticsReportPeerGroupFromCache.StatisticsReportPeerGroupFromCache.GenerateReport" class="py-name" href="#" onclick="return doclink('link-3', 'GenerateReport', 'link-1');">GenerateReport</a></tt><tt class="py-op">(</tt><tt class="py-name">args</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">,</tt><tt class="py-name">args</tt><tt class="py-op">[</tt><tt class="py-number">1</tt><tt class="py-op">]</tt><tt class="py-op">,</tt><tt class="py-name">args</tt><tt class="py-op">[</tt><tt class="py-number">2</tt><tt class="py-op">]</tt><tt class="py-op">,</tt><tt class="py-name">args</tt><tt class="py-op">[</tt><tt class="py-number">3</tt><tt class="py-op">]</tt><tt class="py-op">,</tt><tt class="py-name">args</tt><tt class="py-op">[</tt><tt class="py-number">4</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L29"></a><tt class="py-lineno">29</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">status</tt> <tt class="py-op">=</tt> <tt class="py-number">2</tt> </tt>
+</div><a name="L30"></a><tt class="py-lineno">30</tt>  <tt class="py-line">     </tt>
+<a name="StatsManagerThread._get_my_tid"></a><div id="StatsManagerThread._get_my_tid-def"><a name="L31"></a><tt class="py-lineno">31</tt> <a class="py-toggle" href="#" id="StatsManagerThread._get_my_tid-toggle" onclick="return toggle('StatsManagerThread._get_my_tid');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="manager.utils.StatsManagerThread.StatsManagerThread-class.html#_get_my_tid">_get_my_tid</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="StatsManagerThread._get_my_tid-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="StatsManagerThread._get_my_tid-expanded"><a name="L32"></a><tt class="py-lineno">32</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">isAlive</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L33"></a><tt class="py-lineno">33</tt>  <tt class="py-line">            <tt class="py-keyword">raise</tt> <tt class="py-name">threading</tt><tt class="py-op">.</tt><tt class="py-name">ThreadError</tt><tt class="py-op">(</tt><tt class="py-string">"the thread is not active"</tt><tt class="py-op">)</tt> </tt>
+<a name="L34"></a><tt class="py-lineno">34</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">hasattr</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">,</tt> <tt class="py-string">"_thread_id"</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L35"></a><tt class="py-lineno">35</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_thread_id</tt> </tt>
+<a name="L36"></a><tt class="py-lineno">36</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt class="py-name">tid</tt><tt class="py-op">,</tt> <tt class="py-name">tobj</tt> <tt class="py-keyword">in</tt> <tt class="py-name">threading</tt><tt class="py-op">.</tt><tt class="py-name">_active</tt><tt class="py-op">.</tt><tt class="py-name">items</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L37"></a><tt class="py-lineno">37</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">tobj</tt> <tt class="py-keyword">is</tt> <tt class="py-name">self</tt><tt class="py-op">:</tt> </tt>
+<a name="L38"></a><tt class="py-lineno">38</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_thread_id</tt> <tt class="py-op">=</tt> <tt class="py-name">tid</tt> </tt>
+<a name="L39"></a><tt class="py-lineno">39</tt>  <tt class="py-line">                <tt class="py-keyword">return</tt> <tt class="py-name">tid</tt> </tt>
+</div><a name="L40"></a><tt class="py-lineno">40</tt>  <tt class="py-line">     </tt>
+<a name="StatsManagerThread.terminate"></a><div id="StatsManagerThread.terminate-def"><a name="L41"></a><tt class="py-lineno">41</tt> <a class="py-toggle" href="#" id="StatsManagerThread.terminate-toggle" onclick="return toggle('StatsManagerThread.terminate');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="manager.utils.StatsManagerThread.StatsManagerThread-class.html#terminate">terminate</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="StatsManagerThread.terminate-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="StatsManagerThread.terminate-expanded"><a name="L42"></a><tt class="py-lineno">42</tt>  <tt class="py-line">        <tt id="link-4" class="py-name" targets="Function manager.utils.FundManagerCacheDownloadThread._async_raise()=manager.utils.FundManagerCacheDownloadThread-module.html#_async_raise,Function manager.utils.ManagerListThread._async_raise()=manager.utils.ManagerListThread-module.html#_async_raise,Function manager.utils.StatsManagerThread._async_raise()=manager.utils.StatsManagerThread-module.html#_async_raise"><a title="manager.utils.FundManagerCacheDownloadThread._async_raise
+manager.utils.ManagerListThread._async_raise
+manager.utils.StatsManagerThread._async_raise" class="py-name" href="#" onclick="return doclink('link-4', '_async_raise', 'link-4');">_async_raise</a></tt><tt class="py-op">(</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-5" class="py-name" targets="Method manager.utils.FundManagerCacheDownloadThread.FundManagerCacheDownloadThread._get_my_tid()=manager.utils.FundManagerCacheDownloadThread.FundManagerCacheDownloadThread-class.html#_get_my_tid,Method manager.utils.ManagerListThread.ManagerListThread._get_my_tid()=manager.utils.ManagerListThread.ManagerListThread-class.html#_get_my_tid,Method manager.utils.StatsManagerThread.StatsManagerThread._get_my_tid()=manager.utils.StatsManagerThread.StatsManagerThread-class.html#_get_my_tid"><a title="manager.utils.FundManagerCacheDownloadThread.FundManagerCacheDownloadThread._get_my_tid
+manager.utils.ManagerListThread.ManagerListThread._get_my_tid
+manager.utils.StatsManagerThread.StatsManagerThread._get_my_tid" class="py-name" href="#" onclick="return doclink('link-5', '_get_my_tid', 'link-5');">_get_my_tid</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-name">SystemExit</tt> <tt class="py-op">)</tt> </tt>
+</div></div><a name="L43"></a><tt class="py-lineno">43</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="manager-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Jul 19 12:06:09 2010
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>
